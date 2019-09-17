@@ -3,7 +3,7 @@ runParallel = true
 tfrsRelease="v1.5.5"
 
 def runFunctionalTest = input id: 'runFunctionalTest', message: 'Do you want to run functional test?', parameters: [choice(choices: ['Yes', 'No'], description: 'Option for running functional test', name: 'runFunctionalTest')]
-
+/****
 podTemplate(label: "develop-backend-python-${env.BUILD_NUMBER}", name: "develop-backend-python-${env.BUILD_NUMBER}", serviceAccount: 'jenkins-basic', cloud: 'openshift',
     containers: [
         containerTemplate(
@@ -40,7 +40,7 @@ if (result != 0) {
     currentBuild.result = 'FAILURE'
     return
 }
-
+*****/
 podTemplate(label: "develop-maven-${env.BUILD_NUMBER}", name: "develop-maven-${env.BUILD_NUMBER}", serviceAccount: 'jenkins-basic', cloud: 'openshift',
         containers: [
             containerTemplate(
@@ -71,7 +71,7 @@ podTemplate(label: "develop-maven-${env.BUILD_NUMBER}", name: "develop-maven-${e
 
         //Sonarqube stage
         prepareOtherStages.sonarqubeStage().call()
-
+/******
         //run all the builds
         backendBuildStages = prepareBuilds.backendBuildStages('dev')
         frontendBuildStages = prepareBuilds.frontendBuildStages('dev')
@@ -134,7 +134,7 @@ podTemplate(label: "develop-maven-${env.BUILD_NUMBER}", name: "develop-maven-${e
 
         //Refresh SchemaSpy
         prepareOtherStages.refreshSchemaspyStage("mem-tfrs-dev").call()
-
+******/
     } //end of node
 
 } //end of podTemplate
