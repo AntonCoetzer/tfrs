@@ -237,7 +237,6 @@ def sonarqubeStage() {
                 sh returnStdout: true, script: "./gradlew sonarqube -Dsonar.host.url=${SONARQUBE_URL} -Dsonar.verbose=true --stacktrace --info"
             }
             dir('backend/sonar-runner') {
-                //unstash 'coverage'
                 sh returnStdout: true, script: "./gradlew sonarqube -Dsonar.host.url=${SONARQUBE_URL} -Dsonar.verbose=true --stacktrace --info"
             }
         }
