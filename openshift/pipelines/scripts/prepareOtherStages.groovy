@@ -225,7 +225,7 @@ def confirmStage(String message) {
 }
 
 
-def sonarqubeStage2() {
+def sonarqubeStage() {
     return {
         stage('Code Quality Check') {
             SONARQUBE_URL = sh (
