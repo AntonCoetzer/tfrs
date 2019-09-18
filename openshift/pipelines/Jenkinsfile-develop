@@ -33,14 +33,14 @@ podTemplate(label: "develop-backend-python-${env.BUILD_NUMBER}", name: "develop-
         prepareOtherStages.unitTestStage().call()
     }
 }
-
+/***
 echo "result is ${result}"
 if (result != 0) {
     echo "[FAILURE] Unit Test stage failed"
     currentBuild.result = 'FAILURE'
     return
 }
-
+***/
 podTemplate(label: "develop-maven-${env.BUILD_NUMBER}", name: "develop-maven-${env.BUILD_NUMBER}", serviceAccount: 'jenkins-basic', cloud: 'openshift',
         containers: [
             containerTemplate(
