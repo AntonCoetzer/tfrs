@@ -17,7 +17,6 @@ sonarqube {
         property "sonar.python.coverage.reportPath","coverage.xml"
         property "sonar.python.coveragePlugin","cobertura"
         property "sonar.jacoco.reportPath", "${project.buildDir}/jacoco/test.exec"
-        property "sonar.tests", "api/tests"
     }
 }
 
