@@ -9,6 +9,7 @@ def unitTestStage () {
                 } catch(Throwable t) {
                     result = 1;
                 } finally {
+                    sh 'sleep 120s'
                     stash includes: 'nosetests.xml,coverage.xml', name: 'coverage'
                     junit 'nosetests.xml'
                 }
