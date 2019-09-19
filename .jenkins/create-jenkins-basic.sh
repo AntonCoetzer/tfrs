@@ -8,7 +8,8 @@ BROWSERSTACK_USERNAME=**** \
 BROWSERSTACK_ACCESSKEY=**** 
 | oc create -f -
 
-## 2 Create Secrets B, need to have functional_test_users.txt ready
+## 2 Create Secrets B, need to have functional_test_users.txt ready, 
+##   secret jenkins-basic-functional-test-users is stored in Openshift for safty purpose and not being used anywhere, the one being used is the credential in Jenkins
 $ oc create secret generic jenkins-basic-functional-test-users --from-file=functional_test_users_v2=./functional_test_users.txt
 
 ## 3 Run build
